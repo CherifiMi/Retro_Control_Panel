@@ -62,30 +62,67 @@ class CalanderFragment : Fragment() {
         setTime()
         readApi()
         countDown()
+        setDayVisibility()
 
         return view
     }
 
+    private fun setDayVisibility() {
+        val today = LocalDateTime.now().dayOfWeek.value
+        Log.d("hillo", LocalDateTime.now().dayOfMonth.toString())
+
+        when(today){
+            1->{binding.monLay.alpha = 1f;setDayOfMonth(0)}
+            2->{binding.tusLay.alpha = 1f;setDayOfMonth(1)}
+            3->{binding.wedLay.alpha = 1f;setDayOfMonth(2)}
+            4->{binding.thuLay.alpha = 1f;setDayOfMonth(3)}
+            5->{binding.friLay.alpha = 1f;setDayOfMonth(4)}
+            6->{binding.satLay.alpha = 1f;setDayOfMonth(5)}
+            7->{binding.sunLay.alpha = 1f;setDayOfMonth(6)}
+        }
+    }
+
+    fun setDayOfMonth(num: Int){
+        val day = LocalDateTime.now().dayOfMonth-num
+        binding.oneTxt.text = (day+0).toString()
+        binding.twoTxt.text = (day+1).toString()
+        binding.threeTxt.text = (day+2).toString()
+        binding.fourTxt.text = (day+3).toString()
+        binding.fiveTxt.text = (day+4).toString()
+        binding.sixTxt.text = (day+5).toString()
+        binding.sevenTxt.text = (day+6).toString()
+    }
+
+
+
     private fun countDown() {
         object : CountDownTimer(60000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                //var millisec : Long = millisUntilFinished / 1000
                 setTime()
             }
             override fun onFinish() {
+                countDown()
                 setTime()
+
             }
         }.start()
     }
     @SuppressLint("SetTextI18n")
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setTime(){
+
         if(LocalDateTime.now().second<=9){
             binding.sec.text = "0" + LocalDateTime.now().second.toString()
         }else{binding.sec.text =  LocalDateTime.now().second.toString() }
+
+
         if(LocalDateTime.now().hour<=9){
             binding.hour.text = "0" + LocalDateTime.now().hour.toString()
         }else{ binding.hour.text = LocalDateTime.now().hour.toString()}
+
+
         if(LocalDateTime.now().minute<=9){
             binding.min.text = "0" + LocalDateTime.now().minute.toString()
         }else{ binding.min.text = LocalDateTime.now().minute.toString()}

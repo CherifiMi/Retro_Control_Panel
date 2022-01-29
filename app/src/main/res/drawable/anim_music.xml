@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/play"
+        android:drawable="@drawable/play"
+        android:state_checked="true"/>
+    <item
+        android:id="@+id/stop"
+        android:drawable="@drawable/stop" />
+    <transition
+        android:fromId="@id/play"
+        android:toId="@id/stop"
+        android:drawable="@drawable/playtostop"/>
+
+    <transition
+        android:fromId="@id/stop"
+        android:toId="@id/play"
+        android:drawable="@drawable/stoptoplay"/>
+
+</animated-selector>

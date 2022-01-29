@@ -7,13 +7,18 @@ import processing.core.PApplet
 class PrograssScreen: PApplet() {
     override fun setup() {
 
+    }
+
+    override fun draw() {
+
+        background(0f, 100f)
+
         //-----get battery level
         val bm = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
         val batLevel:Int = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
         val p: Int = width*batLevel/100
 
-        background(0f, 100f)
-
+        frameRate(1f)
         for (i in 0..width step 15){
             fill(55f,209f,123f,77f)
             noStroke()
@@ -24,9 +29,5 @@ class PrograssScreen: PApplet() {
             noStroke()
             rect(i.toFloat(), 0f, 12f, height.toFloat())
         }
-    }
-
-    override fun draw() {
-
     }
 }
