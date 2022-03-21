@@ -42,6 +42,10 @@
 - using the mapBox api to make the stylized map
 - using the media player
 
+## final app
+
+https://user-images.githubusercontent.com/98290339/151686173-4361824f-7c04-4b3f-8b65-224efe9bccf8.mp4
+
 ## Architecture
 Retro_Control_Panel is based on the MVVM architecture and the Repository pattern.
 ![image](https://user-images.githubusercontent.com/98290339/152096381-2a8898d3-c351-4032-979d-ebc836e46332.png)
@@ -55,9 +59,6 @@ This app uses the [MapBox Api](https://mapbox.com/) to get the Map Image, and th
 
 ![image](https://user-images.githubusercontent.com/98290339/151686091-8f9e3b58-3563-42f6-8166-bb58a3c11a48.png)
 
-## final app
-
-https://user-images.githubusercontent.com/98290339/151686173-4361824f-7c04-4b3f-8b65-224efe9bccf8.mp4
 
 
 
